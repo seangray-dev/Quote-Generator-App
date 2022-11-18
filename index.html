@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Advice generator app</title>
+
+</head>
+<body>
+  <main>
+    <div class="container" id="card-container">
+     <div class="card"> 
+       <p class="advice-title">Advice #<span id="adviceID"></span></p>
+       <p class="advice-quote" id="adviceQuote"></p>
+       <img class="divider-desktop" src="./images/pattern-divider-desktop.svg" alt="" aria-label-hidden="true">
+
+       <div>
+         <button class="btn btn-quote" id="btnRandomize"><img src="./images/icon-dice.svg" alt="generate-randome-quote-button"></button>
+       </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Loader -->
+  <div class="loader-container" id="loader-container"><div class="loader" id="loader"></div></div>
+  <!-- Script -->
+  <script src="./script.js"></script>
+
+</body>
+</html>
