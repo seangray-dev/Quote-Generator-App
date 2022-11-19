@@ -3,45 +3,42 @@ const adviceQuote = document.querySelector('#adviceQuote');
 const btnRandomize = document.querySelector('#btnRandomize');
 const cardContainer = document.querySelector('#card-container');
 const loader = document.querySelector('#loader');
+const endpoint = 'https://api.adviceslip.com/advice';
 
 // Show loading
 function loading() {
     loader.hidden = false;
-    cardContainer.style.display = 'none'; 
-}
+    loader.style.display = 'block';
+    cardContainer.style.display = 'none';
+  }
 
 // Hide loading
 function completeLoading() {
     if (!loader.hidden) {
-    cardContainer.style = 'inline';
-    loader.hidden = true;
+        cardContainer.style = 'inline';
+        loader.hidden = true;
+        loader.style.display = 'none';
     }
 }
 
-function getAdvice() {
+function getAdvice(show) {
     loading();
-    fetch('https://api.adviceslip.com/advice').then(response => {
-        return response.json();
-    }).then(adviceData => {
-        const adviceNum = adviceData.slip.id; 
-        const advice = adviceData.slip.advice;
-        
-        adviceID.textContent = adviceNum;
-        adviceQuote.innerHTML = `<p>"${advice}"</p>`; 
-        // Stop Loader, Show Quote
-        completeLoading();
-    }).catch (error => {
-        console.log(error);
-    });
-}; 
+  
+    fetch(endpoint)
+      .then(response => response.json())
+      .then(adviceData => {
+        const advice = adviceData.slip.advice; 
 
-btnRandomize.addEventListener('click', function() {
-    getAdvice();
-})
+        adviceID.textContent = adviceData.slip.id;
+        adviceQuote.innerHTML = `<span>"${advice}"<span>`; 
+      })
+      .catch (error => console.log(error))
+      .finally(() => completeLoading());
+  };
 
-window.onload = () => {
-    getAdvice(); 
-}
+btnRandomize.addEventListener('click', getAdvice);
+
+window.onload = () => getAdvice();
 
 
 
