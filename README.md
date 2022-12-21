@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://seangray-dev.github.io/Quote-Generator-App/](https://seangray-dev.github.io/Quote-Generator-App/)
 
 ### Built with
 
